@@ -1,0 +1,45 @@
+{% extends 'myshow/main.html' %}
+{% load static %}
+{% block content %}
+ <div class="container-fluid mt-3">
+	<div class="row">
+
+
+		<!-- filter -->
+
+		<div class="col-lg-3 mx-auto">
+			<div class="list-group">
+
+				<a href="/" class="list-group-item list-group-item-action">All Products</a>
+
+				{% for cat in cate %}
+				<a href="#"
+					class="list-group-item list-group-item-action"> {{cat.title}} </a>
+				{% endfor %}
+			</div>
+		</div>
+
+
+    <div id='products' class="col-lg-9 mx-auto">
+
+			<div class="row mx-auto">
+				{% for movie in posts %}
+				<div class="col-lg-3" style="width: 18rem;">
+
+						<a href="{% url 'myshow:detail' movie.id %}">
+							<img class="thumbnail" src={{movie.imageURL}}>
+						</a>
+					<div class="card-body">
+						<strong class="card-title">{{ movie.movie_name }}</strong>
+
+					</div>
+
+				</div>
+				{% endfor %}
+			</div>
+
+    </div>
+    </div>
+ </div>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends 'myshow/main.html' %}
+{% load static %}
+{% block content %}
+{% for movies in movie %}
+<div class="card">
+    <div class="card-body">
+        <h3 class="text-center">Reviews</h3>
+        <form action="{% url 'review' movies.id %}" method="POST">
+            {% csrf_token %}
+            <label for="comment"> Review </label>
+            <textarea name="comment" id="comment" cols="30" rows="5" class="form-control"></textarea>
+            <label for="rating">Rating</label>
+            <input type="text" name="rating" class="form-control">
+            <br>
+            <input type="submit" class="btn btn-danger" value="Add Review">
+        </form>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <ul>
+        {% for review in reviews %}
+            <li> {{ review.comment}} <i> {{review.user}} </i></li>
+
+  {% endfor %}
+
+
+{% endblock content %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="text-center">{{ controller }}</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input type="submit" value="{{ controller }}" class="btn btn-danger">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

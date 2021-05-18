@@ -1,0 +1,24 @@
+{% extends 'myshow/main.html' %}
+{% load static %}
+{% block content %}
+<h3> you have been logout </h3>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Need an account? <a class="ml-2" href="{% url 'myshow:login' %}"> Login again </a>
+        </small>
+    </div>
+<!--      {% for field in form %}-->
+<!--        <p>-->
+<!--          {{ field.label_tag }}<br>-->
+<!--          {{ field }}-->
+<!--          {% if field.help_text %}-->
+<!--            <small style="color: grey">{{ field.help_text }}</small>-->
+<!--          {% endif %}-->
+<!--          {% for error in field.errors %}-->
+<!--            <p style="color: red">{{ error }}</p>-->
+<!--          {% endfor %}-->
+<!--        </p>-->
+<!--      {% endfor %}-->
+<!--      <button type="submit">Sign up</button>-->
+
+{% endblock content %}

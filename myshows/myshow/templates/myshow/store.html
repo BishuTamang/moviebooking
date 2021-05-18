@@ -1,0 +1,110 @@
+{% extends 'myshow/main.html' %}
+{% load static %}
+{% block search %}
+			<form class="example" action="{% url 'myshow:searchfor' %}" method="get" style="margin:auto;">
+				 {% csrf_token %}
+                  <input type="text" placeholder="Search" name="query" id="query">
+				  <button type="submit"><i class="fa fa-search"></i></button>
+			 </form>
+{% endblock search %}
+{% block content %}
+
+<div class="container-fluid mt-3">
+	<div class="row">
+
+
+		<!-- filter -->
+
+		<div class="col-lg-3 mx-auto">
+			<div class="list-group">
+
+				<a href="/" class="list-group-item list-group-item-action">All Products</a>
+
+				{% for cat in cate %}
+				<a href="{% url 'myshow:moviefilter' cat.id %}"
+					class="list-group-item list-group-item-action"> {{cat.title}} </a>
+				{% endfor %}
+			</div>
+
+		</div>
+
+		<!-- all products -->
+		<div id='products' class="col-lg-9 mx-auto">
+
+			<div class="row mx-auto">
+				{% for movies in movieshow %}
+				<div class="col-lg-3" style="width: 18rem;">
+
+						<a href="{% url 'myshow:detail' movies.id %}">
+							<img class="thumbnail" src={{movies.imageURL}}>
+						</a>
+					<div class="card-body">
+						<strong class="card-title">{{ movies.movie_name }}</strong>
+
+					</div>
+
+				</div>
+				{% endfor %}
+				{% for movie in movie_item %}
+				<div class="col-lg-3" style="width: 18rem;">
+
+						<a href="{% url 'myshow:detail' movie.id %}">
+							<img class="thumbnail" src={{movie.imageURL}}>
+						</a>
+					<div class="card-body">
+						<strong class="card-title">{{ movie.movie_name }}</strong>
+
+					</div>
+
+				</div>
+				{% endfor %}
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% endblock content %}
+
+
+
+
+<!--<div class="container-fluid mt-3">-->
+<!--	<div class="row">-->
+<!--		<div class="col-lg-3 mx-auto">-->
+<!--			<div class="list-group" style="height:400px">-->
+
+<!--				<a href="/" class="list-group-item list-group-item-action">All Products</a>-->
+
+<!--&lt;!&ndash;				{% for category in categories %}&ndash;&gt;-->
+<!--&lt;!&ndash;				<a href="/?category={{category.id}}"&ndash;&gt;-->
+<!--&lt;!&ndash;					class="list-group-item list-group-item-action">Category{{category.name}}</a>&ndash;&gt;-->
+<!--				&lt;!&ndash;				{% endfor %}&ndash;&gt;-->
+<!--					<a href="#" class="list-group-item list-group-item-action">Category</a>-->
+
+<!--			</div>-->
+<!--		</div>-->
+<!--		{% for movie in movie_item %}-->
+<!--		<div class="col-lg-3">-->
+<!--			<a href="{% url 'myshow:detail' movie.id %}">-->
+<!--			<img class="thumbnail" src={{movie.imageURL}}>-->
+<!--			</a>-->
+<!--		</div>-->
+<!--		{% endfor %}-->
+
+<!--&lt;!&ndash;			<div class="box-element product">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;				<h5><strong>{{movie.movie_name}}</strong></h5>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;				<hr>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;				<button  class="btn btn-outline-secondary add-btn">Book Now</button>&ndash;&gt;-->
+<!--&lt;!&ndash;				<a class="btn btn-outline-success" href="#">View</a>&ndash;&gt;-->
+<!--&lt;!&ndash;				<h4 style="display: inline-block; float: right"><strong>Rating: {{movie.rating}}/5</strong></h4>&ndash;&gt;-->
+
+<!--&lt;!&ndash;			</div>&ndash;&gt;-->
+
+
+
+<!--	</div>-->
+
+<!--</div>-->
