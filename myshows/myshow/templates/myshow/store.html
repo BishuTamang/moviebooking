@@ -1,11 +1,19 @@
 {% extends 'myshow/main.html' %}
 {% load static %}
 {% block search %}
-			<form class="example" action="{% url 'myshow:searchfor' %}" method="get" style="margin:auto;">
+			{% comment %} <form class="example" action="{% url 'myshow:searchfor' %}" method="get" style="margin:auto;">
 				 {% csrf_token %}
                   <input type="text" placeholder="Search" name="query" id="query">
 				  <button type="submit"><i class="fa fa-search"></i></button>
-			 </form>
+			 </form> {% endcomment %}
+
+			 <form class="mx-auto">
+				<div class="header__search ">
+					<i class="fa fa-search icon"></i>
+					<input class="search__input" type="search" placeholder="Search for products..." aria-label="Search">
+				</div>
+			</form>
+
 {% endblock search %}
 {% block content %}
 

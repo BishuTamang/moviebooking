@@ -18,7 +18,11 @@ def store(request):
 
 def cart(request, id):
     moviecart = Movie.objects.filter(id=id)
-    context = {'moviecart': moviecart}
+    context = {
+        'moviecart': moviecart,
+        'range': range(10),
+        'alphabets': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+    }        
     return render(request, 'myshow/cart.html', context)
 
 
