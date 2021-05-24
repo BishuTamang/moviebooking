@@ -15,7 +15,7 @@
 }
 
 .selected__icon {
-    color: rgb(73, 0, 73);
+    color: rgb(110, 0, 110);
 }
 
 .unavailable__icon {
@@ -27,4 +27,25 @@
     font-weight: 600;
     text-transform: capitalize;
     cursor: pointer;
+}
+
+.gradient__hr {
+    display: block;
+    border: none;
+    color: rgb(107, 99, 99);
+    height: 2px;
+    background: rgb(73, 71, 71);
+    background: -webkit-gradient( radial, 50% 50%, 0, 50% 50%, 390, from(rgb(150, 147, 147)), to(#fff));
+    margin-top: 30px;
+}
+
+.sequence {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px;
+    padding: 0px;
+}
+
+.fa-couch {
+    cursor: pointer !important;
 }
