@@ -7,7 +7,7 @@
 			{% for movie in moviecart %}
 				<a  class="btn btn-outline-dark" href="{% url 'myshow:store' %}">&#x2190; Continue Shopping</a>
 
-				<br>
+					<br>
 				<br>
 				<table class="table">
 					<tr>
@@ -46,6 +46,28 @@
 					<div style="flex:1"><p>$32</p></div>
 				</div>
 				{% endfor %}
+			</div>
+		</div>
+	
+		<div class="col-md-12 my-4 w-100 border border-dark d-flex justify-content-around align-items-center icon__title">
+			<div>
+				<i class="fas fa-couch mr-2"></i>
+				<span class="icon__label">Available Seats</span>
+			</div>
+
+			<div>
+				<i class="fas fa-couch mr-2 booked__icon"></i>
+				<span class="icon__label">Booked Seats</span>
+			</div>
+
+			<div>
+				<i class="fas fa-couch mr-2 selected__icon"></i>
+				<span class="icon__label">You Selected Seats</span>
+			</div>
+
+			<div>
+				<i class="fas fa-couch mr-2 unavailable__icon"></i>
+				<span class="icon__label">Unavailable Seats</span>
 			</div>
 		</div>
 	</div>

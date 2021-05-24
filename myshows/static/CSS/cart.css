@@ -1,0 +1,30 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.icon__title {
+    background-color: rgb(223, 215, 215);
+    height: 40px;
+    border-radius: 6px;
+}
+
+.booked__icon {
+    color: green;
+}
+
+.selected__icon {
+    color: rgb(73, 0, 73);
+}
+
+.unavailable__icon {
+    color: red;
+}
+
+.icon__label {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    cursor: pointer;
+}
